@@ -7,6 +7,9 @@ use App\Http\Controllers\AuthController;
 Route::post('/login', [AuthController::class, 'login'])
     ->middleware('guest');
 
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth:sanctum');
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
